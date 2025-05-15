@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pratik Suchak - Portfolio</title>
+<style>
+  :root {
+    --green-dark: #0b6623;
+    --green-medium: #2e8b57;
+    --green-light: #a8d5ba;
+    --white: #ffffff;
+    --gray-light: #f9f9f9;
+    --gray-dark: #333333;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--gray-light);
+    color: var(--gray-dark);
+  }
+  header {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(11, 102, 35, 0.5);
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  header p {
+    margin: 0.3rem 0 0;
+    font-style: italic;
+    font-weight: 500;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    background: var(--green-medium);
+    box-shadow: inset 0 -2px 5px rgba(255 255 255 / 0.1);
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    display: block;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+    letter-spacing: 0.05em;
+  }
+  nav a:hover,
+  nav a:focus {
+    background: var(--green-light);
+    color: var(--green-dark);
+    outline: none;
+  }
+  section {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 2rem 2.5rem;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    line-height: 1.6;
+  }
+  h2 {
+    color: var(--green-dark);
+    border-bottom: 3px solid var(--green-medium);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .project, .blog-post, .implementation, .job {
+    margin-bottom: 1.8rem;
+  }
+  .project h3, .blog-post h3, .implementation h3, .job h3 {
+    margin: 0 0 0.3rem 0;
+    color: var(--green-medium);
+    font-weight: 600;
+  }
+  .github-link {
+    color: var(--green-dark);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  .github-link:hover,
+  .github-link:focus {
+    border-color: var(--green-medium);
+    outline: none;
+  }
+  a.external-link {
+    color: var(--green-dark);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  a.external-link:hover,
+  a.external-link:focus {
+    color: var(--green-medium);
+    outline: none;
+  }
+  #career p {
+    margin: 0.6rem 0;
+  }
+  #contact p {
+    margin: 0.4rem 0;
+  }
+  #contact a {
+    color: var(--green-dark);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  #contact a:hover,
+  #contact a:focus {
+    border-color: var(--green-medium);
+    outline: none;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: var(--green-dark);
+    color: var(--white);
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: 600px) {
+    nav a {
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+    }
+    section {
+      padding: 1.5rem 1.5rem;
+      margin: 1.5rem 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Pratik Suchak</h1>
+  <p>Researcher | Developer | Tech Enthusiast</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#blog">Blog</a>
+  <a href="#research">Research</a>
+  <a href="#career">Career</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hello! I’m Pratik Suchak, a passionate researcher and developer with experience in web development, programming, and technology blogging. I love creating innovative projects and sharing knowledge with the tech community.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project">
+    <h3>Project One</h3>
+    <p>A cool project that does amazing things.</p>
+    <a class="github-link" href="https://github.com/yourusername/project-one" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+  </div>
+  <div class="project">
+    <h3>Project Two</h3>
+    <p>Another project with awesome features.</p>
+    <a class="github-link" href="https://github.com/yourusername/project-two" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+  </div>
+</section>
+
+<section id="blog">
+  <h2>Blog</h2>
+  <div class="blog-post">
+    <h3><a class="external-link" href="https://yourblog.com/post1" target="_blank" rel="noopener noreferrer">Blog Post Title One</a></h3>
+    <p>A short excerpt or summary of the blog post goes here...</p>
+  </div>
+  <div class="blog-post">
+    <h3><a class="external-link" href="https://yourblog.com/post2" target="_blank" rel="noopener noreferrer">Blog Post Title Two</a></h3>
+    <p>A brief summary of another interesting blog post.</p>
+  </div>
+</section>
+
+<section id="research">
+  <h2>Research Publications</h2>
+  <ul>
+    <li>
+      <strong>Deep Learning for Image Recognition</strong><br />
+      <em>IEEE Conference on Computer Vision, 2024</em><br />
+      <a href="https://example.com/paper1.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> |
+      <a href="https://doi.org/10.xxxx/abc123" target="_blank" rel="noopener noreferrer">[DOI]</a>
+    </li>
+    <li>
+      <strong>Neural Networks Optimization Techniques</strong><br />
+      <em>Journal of AI Research, 2023</em><br />
+      <a href="https://example.com/paper2.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>
+    </li>
+  </ul>
+
+  <h2>Research Implementations</h2>
+  <div class="implementation">
+    <h3>Implementation of "Deep Learning for Image Recognition"</h3>
+    <p>Recreated the model architecture and training pipeline using TensorFlow, achieving comparable accuracy on benchmark datasets.</p>
+    <a class="github-link" href="https://github.com/yourusername/image-recognition-impl" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+  </div>
+  <div class="implementation">
+    <h3>Optimization Techniques for Neural Networks</h3>
+    <p>Implemented and tested several optimization algorithms from the paper to enhance convergence speed and stability.</p>
+    <a class="github-link" href="https://github.com/yourusername/nn-optimization" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+  </div>
+</section>
+
+<section id="career">
+  <h2>Career & Skills</h2>
+  <div class="job">
+    <h3>Software Developer at Company XYZ</h3>
+    <p><em>Jan 2021 – Present</em></p>
+    <ul>
+      <li>Developed features for a large-scale web app using React and Node.js.</li>
+      <li>Implemented algorithms from latest research papers to improve system performance.</li>
+      <li>Collaborated with cross-functional teams to deliver high-impact solutions.</li>
+    </ul>
+  </div>
+  <p><strong>Skills:</strong> JavaScript, Python, React, Node.js, CSS, HTML, TensorFlow</p>
+  <p><strong>Education:</strong> B.Sc. in Computer Science from University ABC</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+  <p>GitHub: <a href="https://github.com/yourusername" target="_blank" class="github-link" rel="noopener noreferrer">github.com/yourusername</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
+  <p>Resume: <a href="https://example.com/your-resume.pdf" target="_blank" rel="noopener noreferrer">Download PDF</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Pratik Suchak. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
