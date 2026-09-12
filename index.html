@@ -3,51 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pratik Suchak — AI/ML Researcher</title>
+  <meta name="description" content="Pratik Suchak — AI/ML researcher and engineer focused on healthcare AI, NLP, computational neuroscience, and production ML systems." />
+  <meta name="theme-color" content="#0d1117" />
+  <title>Pratik Suchak — AI/ML Researcher &amp; Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&amp;family=DM+Mono:wght@300;400;500&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0d1117;
-      --surface: #161b22;
-      --surface2: #1c2330;
-      --border: rgba(255,255,255,0.08);
+      --surface: #121821;
+      --surface2: #182230;
+      --surface3: #0f151d;
+      --border: rgba(255,255,255,0.085);
+      --border-strong: rgba(88,166,255,0.28);
       --accent: #58a6ff;
       --accent2: #79c0ff;
       --accent-dim: rgba(88,166,255,0.10);
-      --accent-glow: rgba(88,166,255,0.25);
+      --accent-glow: rgba(88,166,255,0.20);
       --text: #e6edf3;
       --text-muted: #8b949e;
-      --text-dim: #484f58;
+      --text-dim: #59636f;
       --gold: #d29922;
-      --gold-dim: rgba(210,153,34,0.15);
+      --max-width: 1200px;
+      --radius: 10px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(88,166,255,0.045), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(88,166,255,0.035), transparent 24%),
+        var(--bg);
       color: var(--text);
       font-family: 'Outfit', sans-serif;
       font-weight: 300;
       line-height: 1.7;
       overflow-x: hidden;
     }
-
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.4;
+      opacity: 0.34;
     }
+    a { color: inherit; }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -55,855 +61,260 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(10,12,16,0.85);
-      backdrop-filter: blur(20px);
+      padding: 1rem 4rem;
+      background: rgba(10,12,16,0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
+      transition: padding .25s ease, background .25s ease;
     }
-
+    nav.scrolled { padding-top: .8rem; padding-bottom: .8rem; background: rgba(10,12,16,.93); }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: .03em;
       color: var(--text);
       text-decoration: none;
+      white-space: nowrap;
     }
-
     .nav-logo span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
+    .nav-links-wrapper { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
+      position: relative;
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
+      font-size: .72rem;
+      letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--text-muted);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color .2s ease;
     }
-
-    .nav-links a:hover { color: var(--accent); }
-
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -7px;
+      width: 100%; height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .25s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
     .nav-cta {
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+      font-size: .72rem;
+      letter-spacing: .08em;
       text-transform: uppercase;
       color: var(--accent);
       border: 1px solid var(--accent);
-      padding: 0.5rem 1.2rem;
+      padding: .48rem 1rem;
       text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
+      border-radius: 4px;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
     }
+    .nav-cta:hover { background: var(--accent); color: var(--bg); transform: translateY(-1px); }
 
-    .nav-cta:hover { background: var(--accent); color: var(--bg); }
-
-    /* ── HERO ── */
+    /* HERO */
     #hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 8rem 4rem 4rem;
+      padding: 8.5rem 4rem 5rem;
       position: relative;
       overflow: hidden;
     }
-
     .hero-grid-bg {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(88,166,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(88,166,255,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(88,166,255,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88,166,255,.028) 1px, transparent 1px);
       background-size: 60px 60px;
-    }
-
-    .hero-glow {
-      position: absolute;
-      top: 20%; right: 10%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(88,166,255,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 4rem;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .hero-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .hero-tag::before {
-      content: '';
-      display: block;
-      width: 30px;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      padding: 0.85rem 2rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.85rem 2rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── PHOTO CARD ── */
-    .hero-photo-card {
-      position: relative;
-    }
-
-    .photo-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
-    /*
-    ╔══════════════════════════════════════════════════╗
-    ║  📸 ADD YOUR PHOTO HERE                          ║
-    ║                                                  ║
-    ║  Replace the placeholder below with:            ║
-    ║  <img src="your-photo.jpg"                       ║
-    ║       alt="Pratik Suchak"                        ║
-    ║       style="width:100%;height:100%;             ║
-    ║              object-fit:cover;">                 ║
-    ║                                                  ║
-    ║  Put your photo file in the same folder          ║
-    ║  as this index.html and update the src.          ║
-    ╚══════════════════════════════════════════════════╝
-    */
-    .photo-placeholder
-     {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(145deg, var(--surface2) 0%, var(--surface) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--text-dim);
-    }
-
-    .photo-placeholder svg { opacity: 0.3; }
-
-    .photo-placeholder p {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.5;
-    }
-
-    .photo-corner {
-      position: absolute;
-      width: 20px; height: 20px;
-      border-color: var(--accent);
-      border-style: solid;
-    }
-
-    .photo-corner.tl { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
-    .photo-corner.tr { top: -6px; right: -6px; border-width: 2px 2px 0 0; }
-    .photo-corner.bl { bottom: -6px; left: -6px; border-width: 0 0 2px 2px; }
-    .photo-corner.br { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      margin-top: 1.5rem;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .stat-box {
-      background: var(--surface);
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--accent);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-top: 0.25rem;
-    }
-
-    /* ── SECTION BASE ── */
-    section {
-      padding: 6rem 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 20px; height: 1px;
-      background: var(--accent);
-    }
-
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300;
-      letter-spacing: -0.01em;
-      margin-bottom: 3rem;
-      line-height: 1.15;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 4rem;
-    }
-
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-      font-size: 1.02rem;
-    }
-
-    .about-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 2rem;
-    }
-
-    .about-link {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .about-link:hover { color: var(--accent); }
-
-    .about-link span {
-      display: inline-block;
-      width: 20px; height: 1px;
-      background: currentColor;
-      flex-shrink: 0;
-    }
-
-    .interests-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-    }
-
-    .interest-pill {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      padding: 0.9rem 1.2rem;
-      border-radius: 2px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
-    }
-
-    .interest-pill:hover {
-      background: var(--accent-dim);
-      border-left-color: var(--accent);
-      color: var(--text);
-    }
-
-    /* ── PUBLICATIONS ── */
-    #publications { background: transparent; }
-
-    .pub-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .pub-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.8rem 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .pub-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-
-    .pub-card:hover {
-      border-color: rgba(79,195,247,0.3);
-      transform: translateX(4px);
-    }
-
-    .pub-badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.7rem;
-      border-radius: 2px;
-      margin-bottom: 0.75rem;
-      display: inline-block;
-    }
-
-    .badge-ieee { background: rgba(79,195,247,0.1); color: var(--accent); border: 1px solid rgba(79,195,247,0.2); }
-    .badge-springer { background: rgba(240,192,96,0.1); color: var(--gold); border: 1px solid rgba(240,192,96,0.2); }
-    .badge-conf { background: rgba(129,212,250,0.1); color: var(--accent2); border: 1px solid rgba(129,212,250,0.2); }
-    .badge-review { background: rgba(120,120,140,0.1); color: var(--text-dim); border: 1px solid var(--border); }
-
-    .pub-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-
-    .pub-venue {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .pub-authors {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      margin-bottom: 1rem;
-    }
-
-    .pub-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: gap 0.2s;
-    }
-
-    .pub-link:hover { gap: 0.8rem; }
-
-    /* ── PROJECTS ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.8rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-
-    .project-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .project-card:hover {
-      border-color: rgba(79,195,247,0.3);
-      transform: translateY(-3px);
-    }
-
-    .project-card:hover::after { opacity: 1; }
-
-    .project-icon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-    }
-
-    .project-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-    }
-
-    .project-metric {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--accent);
-      background: var(--accent-dim);
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-tags {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.05em;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      padding: 0.2rem 0.6rem;
-      border-radius: 2px;
-    }
-
-    /* ── EXPERIENCE ── */
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-
-    .exp-item:first-child { padding-top: 0; }
-    .exp-item:last-child { border-bottom: none; }
-
-    .exp-period {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      letter-spacing: 0.05em;
-      padding-top: 0.25rem;
-    }
-
-    .exp-company {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .exp-role {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .exp-points {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .exp-points li {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .exp-points li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.75rem;
-    }
-
-    /* ── SKILLS ── */
-    #skills { background: transparent; }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-group {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.5rem;
-    }
-
-    .skill-group-title {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .skill-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      padding: 0.35rem 0.75rem;
-      border-radius: 2px;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-    }
-
-    .skill-tag:hover {
-      color: var(--accent);
-      border-color: rgba(79,195,247,0.3);
-      background: var(--accent-dim);
-    }
-
-    /* ── EDUCATION ── */
-    .edu-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .edu-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.8rem;
-      position: relative;
-    }
-
-    .edu-badge {
-      position: absolute;
-      top: 1.5rem; right: 1.5rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(79,195,247,0.2);
-      padding: 0.25rem 0.6rem;
-      border-radius: 2px;
-    }
-
-    .edu-degree {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.4rem;
-      padding-right: 5rem;
-    }
-
-    .edu-institution {
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-    }
-
-    .edu-location {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      margin-bottom: 1rem;
-    }
-
-    .edu-details {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .edu-details strong { color: var(--text); }
-
-    /* ── CONTACT ── */
-    #contact {
-      text-align: center;
-      padding: 6rem 4rem;
-    }
-
-    .contact-inner {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-email {
-      display: inline-block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(79,195,247,0.3);
-      padding-bottom: 0.25rem;
-      margin: 1.5rem 0 2rem;
-      transition: border-color 0.2s;
-    }
-
-    .contact-email:hover { border-color: var(--accent); }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.2s;
-    }
-
-    .contact-link:hover { color: var(--accent); }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer p {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--text-dim);
-    }
-
-    /* ── SCROLL ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── MOBILE MENU ── */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--text);
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-
-      .hamburger { display: flex; }
-
-      .nav-links-wrapper {
-        display: none;
-        position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: rgba(10,12,16,0.97);
-        padding: 1.5rem;
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        gap: 1.2rem;
-      }
-
-      .nav-links-wrapper.open { display: flex; }
-      .nav-links { flex-direction: column; gap: 1.2rem; }
-      .nav-cta { align-self: flex-start; }
-
-      #hero { padding: 7rem 1.5rem 3rem; }
-
-      .hero-content {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-photo-card { max-width: 260px; margin: 0 auto; order: -1; }
-
-      section { padding: 4rem 1.5rem; }
-
-      .about-grid { grid-template-columns: 1fr; }
-
-      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-
-      .divider { margin: 0 1.5rem; }
-
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.5rem; }
-      h2 { font-size: 1.8rem; }
-      .projects-grid { grid-template-columns: 1fr; }
+      mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.7) 70%, transparent 100%);
+    }
+    .hero-glow { position: absolute; top: 15%; right: 5%; width: 650px; height: 650px; background: radial-gradient(circle, rgba(88,166,255,.07) 0%, transparent 68%); pointer-events:none; }
+    .hero-content { position: relative; display:grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items:center; width:100%; max-width:var(--max-width); margin:0 auto; }
+    .hero-tag, .section-label { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.19em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:.8rem; }
+    .hero-tag::before, .section-label::before { content:''; display:block; width:28px; height:1px; background:var(--accent); }
+    .hero-tag { margin-bottom:1.3rem; }
+    h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(3.3rem, 7vw, 6.2rem); font-weight:300; line-height:.98; letter-spacing:-.03em; margin-bottom:1.4rem; }
+    h1 em { font-style:italic; color:var(--accent); }
+    .hero-desc { max-width:600px; font-size:1.04rem; color:var(--text-muted); line-height:1.85; margin-bottom:2rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:.8rem; }
+    .btn-primary, .btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.82rem 1.5rem; font-family:'DM Mono',monospace; font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; text-decoration:none; border-radius:5px; transition:all .22s ease; }
+    .btn-primary { background:var(--accent); color:var(--bg); box-shadow:0 8px 24px rgba(88,166,255,.10); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 28px rgba(88,166,255,.18); }
+    .btn-secondary { border:1px solid var(--border); color:var(--text-muted); background:rgba(255,255,255,.01); }
+    .btn-secondary:hover { border-color:var(--border-strong); color:var(--text); transform:translateY(-2px); background:var(--accent-dim); }
+
+    .hero-photo-card { position:relative; }
+    .photo-frame { position:relative; width:100%; aspect-ratio:3/4; border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:0 30px 60px rgba(0,0,0,.22); background:var(--surface); }
+    .photo-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; filter:saturate(.94) contrast(1.02); }
+    .photo-frame::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(13,17,23,.32), transparent 36%); pointer-events:none; }
+    .photo-corner { position:absolute; width:22px; height:22px; border-color:var(--accent); border-style:solid; z-index:2; filter:drop-shadow(0 0 8px rgba(88,166,255,.15)); }
+    .photo-corner.tl { top:8px; left:8px; border-width:1px 0 0 1px; }
+    .photo-corner.tr { top:8px; right:8px; border-width:1px 1px 0 0; }
+    .photo-corner.bl { bottom:8px; left:8px; border-width:0 0 1px 1px; }
+    .photo-corner.br { bottom:8px; right:8px; border-width:0 1px 1px 0; }
+    .hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:1.1rem; background:var(--border); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+    .stat-box { background:rgba(18,24,33,.94); padding:.9rem .55rem; text-align:center; }
+    .stat-num { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:600; color:var(--accent); line-height:1; }
+    .stat-label { font-family:'DM Mono',monospace; font-size:.56rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); margin-top:.25rem; }
+
+    /* GLOBAL SECTIONS */
+    section { width:100%; max-width:var(--max-width); margin:0 auto; padding:6rem 4rem; }
+    .section-label { margin-bottom:.7rem; }
+    h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.15rem, 4vw, 3.25rem); font-weight:300; letter-spacing:-.02em; line-height:1.06; margin-bottom:2.6rem; }
+    .divider { border:0; border-top:1px solid var(--border); margin:0 4rem; }
+
+    /* ABOUT */
+    .about-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:4rem; align-items:start; }
+    .about-text p { color:var(--text-muted); margin-bottom:1.15rem; font-size:1rem; }
+    .about-text strong { color:var(--text); font-weight:500; }
+    .about-links { display:grid; gap:.7rem; margin-top:1.8rem; }
+    .about-link { display:flex; align-items:center; gap:.75rem; width:fit-content; font-family:'DM Mono',monospace; font-size:.76rem; color:var(--text-muted); text-decoration:none; transition:color .2s; }
+    .about-link span { width:22px; height:1px; background:currentColor; flex-shrink:0; }
+    .about-link:hover { color:var(--accent); }
+    .interests-grid { display:grid; gap:.75rem; }
+    .interest-pill { background:linear-gradient(135deg, rgba(255,255,255,.018), rgba(255,255,255,.008)); border:1px solid var(--border); border-left:2px solid var(--accent); padding:.85rem 1rem; border-radius:6px; color:var(--text-muted); font-size:.88rem; transition:all .22s ease; }
+    .interest-pill:hover { transform:translateX(4px); border-color:var(--border-strong); background:var(--accent-dim); color:var(--text); }
+
+    /* PUBLICATIONS */
+    .pub-list { display:flex; flex-direction:column; gap:1rem; }
+    .pub-card { background:linear-gradient(135deg, rgba(255,255,255,.022), rgba(255,255,255,.008)); border:1px solid var(--border); border-radius:9px; padding:1.55rem 1.65rem; position:relative; overflow:hidden; transition:all .25s ease; }
+    .pub-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--accent),transparent); }
+    .pub-card:hover { border-color:var(--border-strong); transform:translateX(4px); box-shadow:0 18px 34px rgba(0,0,0,.14); }
+    .pub-badge { font-family:'DM Mono',monospace; font-size:.61rem; letter-spacing:.1em; text-transform:uppercase; padding:.24rem .6rem; border-radius:999px; margin-bottom:.65rem; display:inline-block; }
+    .badge-ieee { background:rgba(88,166,255,.10); color:var(--accent); border:1px solid rgba(88,166,255,.22); }
+    .badge-springer { background:rgba(210,153,34,.10); color:var(--gold); border:1px solid rgba(210,153,34,.22); }
+    .badge-conf { background:rgba(121,192,255,.10); color:var(--accent2); border:1px solid rgba(121,192,255,.22); }
+    .badge-review { background:rgba(120,120,140,.08); color:var(--text-dim); border:1px solid var(--border); }
+    .pub-title { font-family:'Cormorant Garamond',serif; font-size:1.28rem; font-weight:600; color:var(--text); margin-bottom:.42rem; line-height:1.28; }
+    .pub-venue { font-size:.84rem; color:var(--text-muted); margin-bottom:.35rem; }
+    .pub-authors { font-family:'DM Mono',monospace; font-size:.66rem; color:var(--text-dim); margin-bottom:.85rem; }
+    .pub-link { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); text-decoration:none; display:inline-flex; align-items:center; gap:.4rem; transition:gap .2s; }
+    .pub-link:hover { gap:.7rem; }
+
+    /* PROJECTS */
+    #projects { position:relative; }
+    .projects-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:2.4rem; }
+    .projects-head h2 { margin-bottom:0; }
+    .project-count { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-dim); padding-bottom:.5rem; }
+    .projects-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .project-card { background:linear-gradient(140deg, rgba(255,255,255,.025), rgba(255,255,255,.008)); border:1px solid var(--border); border-radius:10px; padding:1.5rem; position:relative; overflow:hidden; min-height:280px; display:flex; flex-direction:column; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+    .project-card::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at 95% 0%, rgba(88,166,255,.12), transparent 32%); opacity:0; transition:opacity .25s ease; pointer-events:none; }
+    .project-card:hover { transform:translateY(-5px); border-color:var(--border-strong); box-shadow:0 22px 42px rgba(0,0,0,.18); }
+    .project-card:hover::after { opacity:1; }
+    .project-icon { width:42px; height:42px; display:grid; place-items:center; border:1px solid var(--border); border-radius:9px; background:var(--surface3); font-size:1.15rem; margin-bottom:1rem; position:relative; z-index:1; }
+    .project-title, .project-desc, .project-metric, .project-tags { position:relative; z-index:1; }
+    .project-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; color:var(--text); margin-bottom:.55rem; line-height:1.25; }
+    .project-desc { font-size:.86rem; color:var(--text-muted); line-height:1.7; margin-bottom:1rem; }
+    .project-metric { display:inline-flex; align-items:center; width:fit-content; gap:.4rem; font-family:'DM Mono',monospace; font-size:.66rem; color:var(--accent); background:var(--accent-dim); padding:.25rem .62rem; border-radius:999px; margin:0 .35rem .45rem 0; }
+    .project-tags { margin-top:auto; padding-top:.55rem; display:flex; flex-wrap:wrap; gap:.35rem; }
+    .tag { font-family:'DM Mono',monospace; font-size:.61rem; color:var(--text-dim); border:1px solid var(--border); padding:.18rem .5rem; border-radius:999px; }
+    .project-links { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; position:relative; z-index:2; }
+    .project-link { font-family:'DM Mono',monospace; font-size:.64rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border:1px solid var(--border); padding:.34rem .62rem; border-radius:5px; transition:all .2s; }
+    .project-link:hover { color:var(--accent); border-color:var(--border-strong); background:var(--accent-dim); }
+    .project-featured { grid-column:span 2; min-height:255px; }
+
+    /* EXPERIENCE */
+    .exp-list { display:flex; flex-direction:column; }
+    .exp-item { display:grid; grid-template-columns:155px 1fr; gap:2rem; padding:1.9rem 0; border-bottom:1px solid var(--border); }
+    .exp-item:first-child { padding-top:0; }
+    .exp-item:last-child { border-bottom:none; }
+    .exp-period { font-family:'DM Mono',monospace; font-size:.72rem; color:var(--text-dim); letter-spacing:.04em; padding-top:.2rem; }
+    .exp-company { font-family:'Cormorant Garamond',serif; font-size:1.28rem; font-weight:600; }
+    .exp-role { font-family:'DM Mono',monospace; font-size:.7rem; color:var(--accent); letter-spacing:.05em; text-transform:uppercase; margin-bottom:.7rem; }
+    .exp-points { list-style:none; display:flex; flex-direction:column; gap:.35rem; }
+    .exp-points li { font-size:.87rem; color:var(--text-muted); padding-left:1.1rem; position:relative; }
+    .exp-points li::before { content:'→'; position:absolute; left:0; color:var(--accent); }
+
+    /* SKILLS */
+    .skills-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .skill-group { background:linear-gradient(140deg, rgba(255,255,255,.02), rgba(255,255,255,.008)); border:1px solid var(--border); border-radius:9px; padding:1.3rem; }
+    .skill-group-title { font-family:'DM Mono',monospace; font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; padding-bottom:.65rem; border-bottom:1px solid var(--border); }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:.42rem; }
+    .skill-tag { font-family:'DM Mono',monospace; font-size:.67rem; color:var(--text-muted); background:var(--surface2); border:1px solid var(--border); padding:.33rem .67rem; border-radius:999px; transition:all .2s ease; }
+    .skill-tag:hover { color:var(--accent); border-color:var(--border-strong); background:var(--accent-dim); }
+
+    /* EDUCATION */
+    .edu-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .edu-card { background:linear-gradient(140deg, rgba(255,255,255,.02), rgba(255,255,255,.008)); border:1px solid var(--border); border-radius:9px; padding:1.45rem; position:relative; transition:transform .22s,border-color .22s; }
+    .edu-card:hover { transform:translateY(-3px); border-color:var(--border-strong); }
+    .edu-badge { position:absolute; top:1.15rem; right:1.15rem; font-family:'DM Mono',monospace; font-size:.6rem; color:var(--accent); background:var(--accent-dim); border:1px solid rgba(88,166,255,.2); padding:.22rem .5rem; border-radius:999px; }
+    .edu-degree { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:600; line-height:1.28; margin-bottom:.4rem; padding-right:5rem; }
+    .edu-institution { font-size:.86rem; color:var(--accent); margin-bottom:.15rem; }
+    .edu-location { font-family:'DM Mono',monospace; font-size:.65rem; color:var(--text-dim); margin-bottom:.8rem; }
+    .edu-details { font-size:.84rem; color:var(--text-muted); }
+    .edu-details strong { color:var(--text); font-weight:500; }
+
+    /* CONTACT */
+    #contact { text-align:center; padding-bottom:7rem; }
+    .contact-inner { max-width:680px; margin:0 auto; }
+    .contact-inner .section-label { justify-content:center; }
+    .contact-email { display:inline-block; font-family:'Cormorant Garamond',serif; font-size:clamp(1.35rem,3vw,2.1rem); color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(88,166,255,.28); padding-bottom:.2rem; margin:1.1rem 0 1.6rem; }
+    .contact-email:hover { border-color:var(--accent); }
+    .contact-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .contact-link { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; display:inline-flex; align-items:center; gap:.45rem; padding:.35rem .5rem; border-radius:5px; transition:color .2s,background .2s; }
+    .contact-link:hover { color:var(--accent); background:var(--accent-dim); }
+
+    /* FOOTER */
+    footer { border-top:1px solid var(--border); padding:1.6rem 4rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; max-width:var(--max-width); margin:0 auto; }
+    footer p { font-family:'DM Mono',monospace; font-size:.64rem; color:var(--text-dim); }
+
+    /* REVEALS */
+    .fade-up { opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; }
+    .fade-up.visible { opacity:1; transform:none; }
+
+    /* MOBILE MENU */
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:5px; border:0; background:none; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--text); transition:transform .25s,opacity .25s; }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 980px) {
+      nav { padding-left:1.5rem; padding-right:1.5rem; }
+      .nav-links-wrapper { display:none; position:absolute; top:100%; left:0; right:0; padding:1.2rem 1.5rem 1.4rem; background:rgba(10,12,16,.97); border-bottom:1px solid var(--border); flex-direction:column; align-items:flex-start; gap:1.1rem; }
+      .nav-links-wrapper.open { display:flex; }
+      .nav-links { flex-direction:column; gap:1rem; }
+      .nav-cta { align-self:flex-start; }
+      .hamburger { display:flex; }
+      #hero { padding:7rem 1.5rem 3rem; }
+      .hero-content { grid-template-columns:1fr; gap:2.5rem; }
+      .hero-photo-card { order:-1; max-width:300px; width:100%; margin:0 auto; }
+      section { padding:4.5rem 1.5rem; }
+      .divider { margin:0 1.5rem; }
+      .about-grid { grid-template-columns:1fr; gap:2rem; }
+      .projects-grid, .skills-grid, .edu-cards { grid-template-columns:1fr; }
+      .project-featured { grid-column:auto; }
+      .exp-item { grid-template-columns:1fr; gap:.5rem; }
+      footer { padding:1.4rem 1.5rem; }
+    }
+    @media (max-width: 640px) {
+      h1 { font-size:2.8rem; }
+      h2 { font-size:2rem; }
+      .hero-desc { font-size:.96rem; }
+      .hero-actions { flex-direction:column; align-items:stretch; }
+      .btn-primary,.btn-secondary { width:100%; }
+      .hero-stats { grid-template-columns:repeat(2,1fr); }
+      .projects-head { align-items:start; flex-direction:column; }
+      .project-card, .pub-card, .skill-group, .edu-card { padding:1.15rem; }
+      .pub-title, .project-title { font-size:1.16rem; }
+      footer { flex-direction:column; text-align:center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
     }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
+  <nav id="siteNav">
     <a href="#hero" class="nav-logo">Pratik <span>Suchak</span></a>
     <div class="nav-links-wrapper" id="navMenu">
       <ul class="nav-links">
@@ -912,403 +323,278 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
       </ul>
       <a href="mailto:pratiksuchak16@gmail.com" class="nav-cta">Contact</a>
     </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- HERO -->
-  <div id="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div>
-        <p class="hero-tag">AI/ML Researcher &amp; Engineer</p>
-        <h1>Pratik<br><em>Suchak</em></h1>
-        <p class="hero-desc">
-          Computer Science graduate specialising in Machine Learning and AI, with published research in healthcare diagnostics and production-grade ML systems. Focused on building AI that matters — from mental health to clinical decision support.
-        </p>
-        <div class="hero-actions">
-          <a href="#publications" class="btn-primary">View Research</a>
-          <a href="#projects" class="btn-secondary">Explore Projects</a>
-        </div>
-      </div>
-
-      <div class="hero-photo-card">
-        <div class="photo-frame">
-          <div class="photo-corner tl"></div>
-          <div class="photo-corner tr"></div>
-          <div class="photo-corner bl"></div>
-          <div class="photo-corner br"></div>
-
-          <!--
-            ╔═══════════════════════════════════════════════╗
-            ║  📸  ADD YOUR PHOTO HERE                      ║
-            ║                                               ║
-            ║  Delete the <div class="photo-placeholder">  ║
-            ║  block below, and replace it with:           ║
-            ║                                               ║
-            ║  <img src="photo.jpg"                        ║
-            ║       alt="Pratik Suchak"                    ║
-            ║       style="width:100%;height:100%;         ║
-            ║              object-fit:cover;               ║
-            ║              object-position:top;">          ║
-            ║                                               ║
-            ║  Place your photo in the same folder as      ║
-            ║  this index.html file.                       ║
-            ╚═══════════════════════════════════════════════╝
-          -->
-          <img src="photo.jpeg"
-          alt="Pratik Suchak"
-          style="width:100%;height:100%;object-fit:cover;object-position:top;">
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat-box">
-            <div class="stat-num">4</div>
-            <div class="stat-label">Publications</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">3.92</div>
-            <div class="stat-label">GPA / 4.0</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Internships</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">3+</div>
-            <div class="stat-label">ML Projects</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- ABOUT -->
-  <section id="about">
-    <p class="section-label fade-up">About</p>
-    <h2 class="fade-up">Researcher. Builder.<br>Healthcare AI advocate.</h2>
-    <div class="about-grid fade-up">
-      <div class="about-text">
-        <p>
-          I'm a Computer Science graduate from Christ University, Bangalore, specialising in Machine Learning and AI. My research sits at the intersection of clinical AI and human wellbeing — designing systems that are not just accurate, but explainable and trustworthy.
-        </p>
-        <p>
-          With 2 peer-reviewed conference papers, a Springer book chapter, and an extended journal manuscript under review, I've focused on multimodal NLP, transfer learning, and computational neuroscience. I care deeply about building AI that can make a genuine difference in healthcare.
-        </p>
-        <p>
-          I'm now looking for opportunities in AI research and engineering — particularly in healthcare AI, R&amp;D, and graduate programs in Europe.
-        </p>
-        <div class="about-links">
-          <a href="https://linkedin.com/in/pratiksuchak" target="_blank" class="about-link">
-            <span></span> linkedin.com/in/pratiksuchak
-          </a>
-          <a href="https://github.com/Pratikshk16" target="_blank" class="about-link">
-            <span></span> github.com/Pratikshk16
-          </a>
-          <a href="https://scholar.google.com/citations?user=qTcCK4gAAAAJ&hl=en&authuser=2" target="_blank" class="about-link">
-            <span></span> Google Scholar Profile
-          </a>
-          <a href="mailto:pratiksuchak16@gmail.com" class="about-link">
-            <span></span> pratiksuchak16@gmail.com
-          </a>
-          <a href="tel:+917990440422" class="about-link">
-            <span></span> +91 7990440422
-          </a>
-        </div>
-      </div>
-      <div class="interests-grid">
-        <div class="interest-pill">🧠 Explainable AI (XAI) in Clinical Decision Support</div>
-        <div class="interest-pill">🔬 Brain-Computer Interfaces &amp; Neural Signal Analysis</div>
-        <div class="interest-pill">🏥 AI/ML in Healthcare &amp; Medical Imaging</div>
-        <div class="interest-pill">⚡ Computational Neuroscience &amp; Spiking Neural Networks</div>
-        <div class="interest-pill">💬 Multimodal NLP for Mental Health Assessment</div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- PUBLICATIONS -->
-  <section id="publications">
-    <p class="section-label fade-up">Research</p>
-    <h2 class="fade-up">Publications</h2>
-    <div class="pub-list">
-
-      <div class="pub-card fade-up">
-        <span class="pub-badge badge-ieee">IEEE Conference · 2024</span>
-        <p class="pub-title">Epilepsy Detection Using Supervised Learning Algorithms</p>
-        <p class="pub-venue">IEEE International Conference on Contemporary Computing and Communications (InC4)</p>
-        <p class="pub-authors">L. Krishnasamy, Y. K. Sriwastav, Suchak Pratik Bharat, S. R. Ganachar</p>
-        <a href="https://ieeexplore.ieee.org/document/10649398" target="_blank" class="pub-link">
-          View on IEEE Xplore →
-        </a>
-      </div>
-
-      <div class="pub-card fade-up">
-        <span class="pub-badge badge-springer">Springer Book Chapter · 2026</span>
-        <p class="pub-title">Transforming Teletherapy: Using Transfer Learning and NLP for Improved Mental Health Care</p>
-        <p class="pub-venue">Advances in Artificial Intelligence and Data Science, Springer</p>
-        <p class="pub-authors">D. Yogish, S. P. Bharat, S. Reddy, S. Ramachandran, P. Yagnik</p>
-        <a href="https://link.springer.com/chapter/10.1007/978-3-032-09582-4_3" target="_blank" class="pub-link">
-          View on Springer →
-        </a>
-      </div>
-
-      <div class="pub-card fade-up">
-        <span class="pub-badge badge-conf">Conference · Nov 2025</span>
-        <p class="pub-title">Transfer Learning-Driven AI Models for Personalized Mental Health Care</p>
-        <p class="pub-venue">IDSCS'25: International Conference on Data Science, Computation, and Security &nbsp;·&nbsp; Presented at ICSDET 2025, Sultanate of Oman</p>
-        <p class="pub-authors">Deepa Yogish, Suchak Pratik Bharat, Pihoo Yagnik</p>
-      </div>
-
-      <div class="pub-card fade-up">
-        <span class="pub-badge badge-review">Under Review · Scopus Q3</span>
-        <p class="pub-title">Enhancing Teletherapy Mental Health Diagnostics Using Multimodal NLP and Transfer Learning</p>
-        <p class="pub-venue">IAES International Journal of Artificial Intelligence (IJAI)</p>
-        <p class="pub-authors">Suchak Pratik Bharat, Pihoo Yagnik, Deepa Yogish &nbsp;·&nbsp; Extended journal version of the Springer book chapter</p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="section-label fade-up">Work</p>
-    <h2 class="fade-up">Research &amp; Technical Projects</h2>
-    <div class="projects-grid">
-
-      <div class="project-card fade-up">
-        <div class="project-icon">🧬</div>
-        <p class="project-title">Multimodal NLP for Teletherapy Mental Health Diagnostics</p>
-        <p class="project-desc">
-          Fine-tuned BERT for multi-class classification of 5 mental health conditions across 25 subcategories. Integrated an audio-to-text pipeline (Google Speech API) for multimodal teletherapy input.
-        </p>
-        <span class="project-metric">78% Accuracy</span>
-        <span class="project-metric">ROC–AUC 0.92</span>
-        <div class="project-tags">
-          <span class="tag">PyTorch</span><span class="tag">BERT</span><span class="tag">HuggingFace</span><span class="tag">Multimodal NLP</span><span class="tag">gTTS</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-icon">⚡</div>
-        <p class="project-title">Working Memory Simulation Using Spiking Neural Networks</p>
-        <p class="project-desc">
-          Built a recurrent SNN using Izhikevich neuron models in Brian2 for cognitive working memory tasks. Evaluated on binary 2-back tasks and MNIST digit encoding under controlled noise conditions.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Brian2</span><span class="tag">SNN</span><span class="tag">Computational Neuroscience</span><span class="tag">Python</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-icon">🏥</div>
-        <p class="project-title">Colorectal Cancer Survival Prediction Platform</p>
-        <p class="project-desc">
-          Production-grade clinical ML platform for decision-making on 33,500+ patient records. Modular containerised pipeline with automated encoding, normalisation, and MLflow experiment tracking.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Kubeflow</span><span class="tag">Kubernetes</span><span class="tag">MLflow</span><span class="tag">Docker</span><span class="tag">Flask</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <p class="section-label fade-up">Career</p>
-    <h2 class="fade-up">Experience</h2>
-    <div class="exp-list">
-
-      <div class="exp-item fade-up">
-        <div class="exp-period">Apr 2025 –<br>May 2025</div>
+  <main>
+    <section id="hero">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-content">
         <div>
-          <p class="exp-company">Spaceify <span style="color:var(--text-dim);font-size:0.85rem;font-family:'Outfit',sans-serif;">(Breakwater India Pvt. Ltd.)</span></p>
-          <p class="exp-role">AI/ML Intern · Bangalore, India</p>
-          <ul class="exp-points">
-            <li>Built production-ready ML models using Python and TensorFlow for real-world deployment.</li>
-            <li>Deployed models on Heroku and AWS via Flask for scalable cloud access.</li>
-          </ul>
+          <p class="hero-tag">AI/ML Researcher &amp; Engineer</p>
+          <h1>Pratik<br><em>Suchak</em></h1>
+          <p class="hero-desc">Computer Science graduate specialising in Machine Learning and AI, with published research in healthcare diagnostics and hands-on experience building production ML systems. Interested in healthcare AI, NLP, computational neuroscience, and trustworthy intelligent systems.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">Explore Projects <span>→</span></a>
+            <a href="#publications" class="btn-secondary">View Research</a>
+          </div>
+        </div>
+
+        <div class="hero-photo-card">
+          <div class="photo-frame">
+            <div class="photo-corner tl"></div><div class="photo-corner tr"></div><div class="photo-corner bl"></div><div class="photo-corner br"></div>
+            <img src="photo.jpeg" alt="Pratik Suchak" loading="eager">
+          </div>
+          <div class="hero-stats">
+            <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Publications</div></div>
+            <div class="stat-box"><div class="stat-num">3.92</div><div class="stat-label">GPA / 4.0</div></div>
+            <div class="stat-box"><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
+            <div class="stat-box"><div class="stat-num">4+</div><div class="stat-label">AI Projects</div></div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="exp-item fade-up">
-        <div class="exp-period">Apr 2024 –<br>May 2024</div>
+    <hr class="divider">
+
+    <section id="about">
+      <p class="section-label fade-up">About</p>
+      <h2 class="fade-up">Researcher. Builder.<br>Healthcare AI advocate.</h2>
+      <div class="about-grid fade-up">
+        <div class="about-text">
+          <p>I'm a Computer Science graduate from Christ University, Bangalore, specialising in Machine Learning and AI. My work sits at the intersection of <strong>clinical AI, intelligent systems, and human wellbeing</strong> — with an emphasis on practical, explainable and trustworthy machine learning.</p>
+          <p>My research experience spans multimodal NLP, transfer learning, computational neuroscience, and healthcare diagnostics. I've contributed to peer-reviewed conference publications, a Springer book chapter, and an extended journal manuscript under review.</p>
+          <p>I'm currently focused on opportunities in <strong>AI engineering, ML research, healthcare AI, and R&amp;D</strong>, with a strong interest in building systems that move beyond prototypes into reliable real-world applications.</p>
+          <div class="about-links">
+            <a href="https://linkedin.com/in/pratiksuchak" target="_blank" rel="noopener" class="about-link"><span></span> linkedin.com/in/pratiksuchak</a>
+            <a href="https://github.com/Pratikshk16" target="_blank" rel="noopener" class="about-link"><span></span> github.com/Pratikshk16</a>
+            <a href="https://scholar.google.com/citations?user=qTcCK4gAAAAJ&amp;hl=en&amp;authuser=2" target="_blank" rel="noopener" class="about-link"><span></span> Google Scholar Profile</a>
+            <a href="mailto:pratiksuchak16@gmail.com" class="about-link"><span></span> pratiksuchak16@gmail.com</a>
+          </div>
+        </div>
+        <div class="interests-grid">
+          <div class="interest-pill">🧠 Explainable AI (XAI) in Clinical Decision Support</div>
+          <div class="interest-pill">🔬 Brain-Computer Interfaces &amp; Neural Signal Analysis</div>
+          <div class="interest-pill">🏥 AI/ML in Healthcare &amp; Medical Imaging</div>
+          <div class="interest-pill">⚡ Computational Neuroscience &amp; Spiking Neural Networks</div>
+          <div class="interest-pill">💬 Multimodal NLP for Mental Health Assessment</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="publications">
+      <p class="section-label fade-up">Research</p>
+      <h2 class="fade-up">Publications</h2>
+      <div class="pub-list">
+        <div class="pub-card fade-up">
+          <span class="pub-badge badge-ieee">IEEE Conference · 2024</span>
+          <p class="pub-title">Epilepsy Detection Using Supervised Learning Algorithms</p>
+          <p class="pub-venue">IEEE International Conference on Contemporary Computing and Communications (InC4)</p>
+          <p class="pub-authors">L. Krishnasamy, Y. K. Sriwastav, Suchak Pratik Bharat, S. R. Ganachar</p>
+          <a href="https://ieeexplore.ieee.org/document/10649398" target="_blank" rel="noopener" class="pub-link">View on IEEE Xplore →</a>
+        </div>
+        <div class="pub-card fade-up">
+          <span class="pub-badge badge-springer">Springer Book Chapter · 2026</span>
+          <p class="pub-title">Transforming Teletherapy: Using Transfer Learning and NLP for Improved Mental Health Care</p>
+          <p class="pub-venue">Advances in Artificial Intelligence and Data Science, Springer</p>
+          <p class="pub-authors">D. Yogish, S. P. Bharat, S. Reddy, S. Ramachandran, P. Yagnik</p>
+          <a href="https://link.springer.com/chapter/10.1007/978-3-032-09582-4_3" target="_blank" rel="noopener" class="pub-link">View on Springer →</a>
+        </div>
+        <div class="pub-card fade-up">
+          <span class="pub-badge badge-conf">Conference · Nov 2025</span>
+          <p class="pub-title">Transfer Learning-Driven AI Models for Personalized Mental Health Care</p>
+          <p class="pub-venue">IDSCS'25: International Conference on Data Science, Computation, and Security · Presented at ICSDET 2025, Sultanate of Oman</p>
+          <p class="pub-authors">Deepa Yogish, Suchak Pratik Bharat, Pihoo Yagnik</p>
+        </div>
+        <div class="pub-card fade-up">
+          <span class="pub-badge badge-review">Under Review · Scopus Q3</span>
+          <p class="pub-title">Enhancing Teletherapy Mental Health Diagnostics Using Multimodal NLP and Transfer Learning</p>
+          <p class="pub-venue">IAES International Journal of Artificial Intelligence (IJAI)</p>
+          <p class="pub-authors">Suchak Pratik Bharat, Pihoo Yagnik, Deepa Yogish · Extended journal version of the Springer book chapter</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="projects">
+      <div class="projects-head">
         <div>
-          <p class="exp-company">Kudzu Info-tech</p>
-          <p class="exp-role">Intern · Bangalore, India</p>
-          <ul class="exp-points">
-            <li>Improved admin dashboard database sync and UI responsiveness by 30%.</li>
-            <li>Integrated optimised search and filter pipelines, improving usability by 50%.</li>
-          </ul>
+          <p class="section-label fade-up">Work</p>
+          <h2 class="fade-up">Research &amp; Technical Projects</h2>
+        </div>
+        <div class="project-count">Selected work · 04</div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card project-featured fade-up">
+          <div class="project-icon">⚙️</div>
+          <p class="project-title">FastAPI Blog — Production-Oriented Backend</p>
+          <p class="project-desc">Built a full-stack blogging platform around FastAPI with PostgreSQL, asynchronous SQLAlchemy, JWT authentication, password reset via email, Jinja2 pages, and AWS S3 profile-image storage. Added Alembic migrations and an automated async pytest suite with PostgreSQL transaction isolation and mocked AWS S3 testing through Moto.</p>
+          <span class="project-metric">Async API</span>
+          <span class="project-metric">Automated Tests</span>
+          <span class="project-metric">AWS S3</span>
+          <div class="project-tags">
+            <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy Async</span><span class="tag">JWT</span><span class="tag">Alembic</span><span class="tag">Pytest</span><span class="tag">Moto</span><span class="tag">AWS S3</span><span class="tag">Jinja2</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Pratikshk16/fastapi_blog" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+            <a href="https://github.com/Pratikshk16/fastapi_blog" target="_blank" rel="noopener" class="project-link">README ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">🧬</div>
+          <p class="project-title">Multimodal NLP for Teletherapy Mental Health Diagnostics</p>
+          <p class="project-desc">Fine-tuned BERT for multi-class classification of five mental health conditions across 25 subcategories and integrated an audio-to-text pipeline for multimodal teletherapy input.</p>
+          <span class="project-metric">78% Accuracy</span><span class="project-metric">ROC–AUC 0.92</span>
+          <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">BERT</span><span class="tag">HuggingFace</span><span class="tag">Multimodal NLP</span><span class="tag">gTTS</span></div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">⚡</div>
+          <p class="project-title">Working Memory Simulation Using Spiking Neural Networks</p>
+          <p class="project-desc">Built a recurrent SNN using Izhikevich neuron models in Brian2 for cognitive working-memory tasks, including a binary 2-back task and MNIST digit encoding under controlled noise.</p>
+          <div class="project-tags"><span class="tag">Brian2</span><span class="tag">SNN</span><span class="tag">Izhikevich</span><span class="tag">Computational Neuroscience</span><span class="tag">Python</span></div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">🏨</div>
+          <p class="project-title">Hotel Reservation Prediction &amp; MLOps</p>
+          <p class="project-desc">End-to-end ML prediction service built on 40K+ hotel booking records using LightGBM, MLflow experiment tracking, Jenkins CI/CD, Docker, Flask, and Google Cloud Run.</p>
+          <span class="project-metric">~82% Accuracy</span>
+          <div class="project-tags"><span class="tag">LightGBM</span><span class="tag">MLflow</span><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">GCP</span><span class="tag">Flask</span></div>
+          <div class="project-links"><a href="https://github.com/Pratikshk16/Hotel-Reservation-Prediction-with-MLFlow-Jenkins-and-GCP-Deployment" target="_blank" rel="noopener" class="project-link">GitHub ↗</a><a href="https://hotel-reservation-prediction-459049856235.us-central1.run.app" target="_blank" rel="noopener" class="project-link">Live Demo ↗</a></div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">🏥</div>
+          <p class="project-title">Colorectal Cancer Survival Prediction Platform</p>
+          <p class="project-desc">Clinical ML platform for decision support on 33,500+ patient records with modular preprocessing, model serving, and experiment tracking components.</p>
+          <div class="project-tags"><span class="tag">MLflow</span><span class="tag">Docker</span><span class="tag">Flask</span><span class="tag">Clinical ML</span><span class="tag">Python</span></div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <hr class="divider">
 
-  <hr class="divider">
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <p class="section-label fade-up">Expertise</p>
-    <h2 class="fade-up">Skills &amp; Technologies</h2>
-    <div class="skills-grid fade-up">
-      <div class="skill-group">
-        <p class="skill-group-title">Machine Learning / Deep Learning</p>
-        <div class="skill-tags">
-          <span class="skill-tag">TensorFlow</span>
-          <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">Scikit-learn</span>
-          <span class="skill-tag">LightGBM</span>
-          <span class="skill-tag">HuggingFace</span>
-          <span class="skill-tag">BERT</span>
-          <span class="skill-tag">Brian2 (SNN)</span>
+    <section id="experience">
+      <p class="section-label fade-up">Career</p>
+      <h2 class="fade-up">Experience</h2>
+      <div class="exp-list">
+        <div class="exp-item fade-up">
+          <div class="exp-period">Apr 2025 –<br>May 2025</div>
+          <div>
+            <p class="exp-company">Spaceify <span style="color:var(--text-dim);font-size:.82rem;font-family:'Outfit',sans-serif;">(Breakwater India Pvt. Ltd.)</span></p>
+            <p class="exp-role">AI/ML Intern · Bangalore, India</p>
+            <ul class="exp-points"><li>Built production-ready ML models using Python and TensorFlow for real-world deployment.</li><li>Deployed models on Heroku and AWS through Flask-based interfaces.</li></ul>
+          </div>
+        </div>
+        <div class="exp-item fade-up">
+          <div class="exp-period">Apr 2024 –<br>May 2024</div>
+          <div>
+            <p class="exp-company">Kudzu Info-tech</p>
+            <p class="exp-role">Software Development Intern · Bangalore, India</p>
+            <ul class="exp-points"><li>Improved admin-dashboard database synchronisation and UI responsiveness by 30%.</li><li>Integrated optimised search and filtering pipelines, improving usability by 50%.</li></ul>
+          </div>
         </div>
       </div>
-      <div class="skill-group">
-        <p class="skill-group-title">MLOps &amp; Cloud</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Kubeflow</span>
-          <span class="skill-tag">MLflow</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Kubernetes</span>
-          <span class="skill-tag">AWS</span>
-          <span class="skill-tag">Google Cloud Run</span>
-          <span class="skill-tag">Jenkins</span>
+    </section>
+
+    <hr class="divider">
+
+    <section id="skills">
+      <p class="section-label fade-up">Expertise</p>
+      <h2 class="fade-up">Skills &amp; Technologies</h2>
+      <div class="skills-grid fade-up">
+        <div class="skill-group"><p class="skill-group-title">Machine Learning / Deep Learning</p><div class="skill-tags"><span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">LightGBM</span><span class="skill-tag">XGBoost</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">BERT</span><span class="skill-tag">Brian2 (SNN)</span></div></div>
+        <div class="skill-group"><p class="skill-group-title">MLOps &amp; Cloud</p><div class="skill-tags"><span class="skill-tag">MLflow</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">AWS</span><span class="skill-tag">Amazon S3</span><span class="skill-tag">Google Cloud Run</span><span class="skill-tag">Jenkins</span></div></div>
+        <div class="skill-group"><p class="skill-group-title">Backend &amp; Data</p><div class="skill-tags"><span class="skill-tag">FastAPI</span><span class="skill-tag">Flask</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Async SQLAlchemy</span><span class="skill-tag">Bash</span></div></div>
+        <div class="skill-group"><p class="skill-group-title">Research Methods</p><div class="skill-tags"><span class="skill-tag">Transfer Learning</span><span class="skill-tag">Fine-tuning</span><span class="skill-tag">Multimodal NLP</span><span class="skill-tag">XAI</span><span class="skill-tag">SHAP</span><span class="skill-tag">LIME</span><span class="skill-tag">Grad-CAM</span><span class="skill-tag">PRISMA</span></div></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="education">
+      <p class="section-label fade-up">Background</p>
+      <h2 class="fade-up">Education</h2>
+      <div class="edu-cards fade-up">
+        <div class="edu-card"><span class="edu-badge">APS Certified</span><p class="edu-degree">B.Tech Computer Science &amp; Engineering <span style="font-size:.92rem;font-weight:400;">(Spec. AI &amp; ML)</span></p><p class="edu-institution">Christ University</p><p class="edu-location">Bangalore, India · Aug 2022 – Mar 2026</p><p class="edu-details"><strong>GPA: 3.92 / 4.0</strong> · ≈ 1.1–1.2 on German grading scale</p></div>
+        <div class="edu-card"><span class="edu-badge">Senior Secondary</span><p class="edu-degree">Senior Secondary Education</p><p class="edu-institution">Delhi Public School</p><p class="edu-location">Kampala, Uganda · Apr 2020 – Mar 2022</p><p class="edu-details"><strong>92%</strong> aggregate score</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="contact">
+      <div class="contact-inner fade-up">
+        <p class="section-label">Get in Touch</p>
+        <h2>Let's build something<br><em style="font-style:italic;color:var(--accent)">meaningful</em> together.</h2>
+        <a href="mailto:pratiksuchak16@gmail.com" class="contact-email">pratiksuchak16@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/pratiksuchak" target="_blank" rel="noopener" class="contact-link">LinkedIn ↗</a>
+          <a href="https://github.com/Pratikshk16" target="_blank" rel="noopener" class="contact-link">GitHub ↗</a>
+          <a href="https://scholar.google.com/citations?user=qTcCK4gAAAAJ&amp;hl=en&amp;authuser=2" target="_blank" rel="noopener" class="contact-link">Google Scholar ↗</a>
         </div>
       </div>
-      <div class="skill-group">
-        <p class="skill-group-title">NLP &amp; Research Methods</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Transfer Learning</span>
-          <span class="skill-tag">Fine-tuning</span>
-          <span class="skill-tag">Multimodal NLP</span>
-          <span class="skill-tag">SHAP</span>
-          <span class="skill-tag">LIME</span>
-          <span class="skill-tag">Grad-CAM</span>
-          <span class="skill-tag">PRISMA</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Backend &amp; Programming</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Bash</span>
-          <span class="skill-tag">Flask</span>
-          <span class="skill-tag">REST APIs</span>
-          <span class="skill-tag">Containerization</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <hr class="divider">
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <p class="section-label fade-up">Background</p>
-    <h2 class="fade-up">Education</h2>
-    <div class="edu-cards fade-up">
-      <div class="edu-card">
-        <span class="edu-badge">APS Certified</span>
-        <p class="edu-degree">B.Tech Computer Science &amp; Engineering <span style="font-size:0.95rem;font-weight:400;">(Spec. AI &amp; ML)</span></p>
-        <p class="edu-institution">Christ University</p>
-        <p class="edu-location">Bangalore, India · Aug 2022 – Mar 2026</p>
-        <p class="edu-details">
-          <strong>GPA: 3.92 / 4.0</strong> &nbsp;·&nbsp; ≈ 1.1–1.2 on German grading scale
-        </p>
-      </div>
-      <div class="edu-card">
-        <span class="edu-badge">Senior Secondary</span>
-        <p class="edu-degree">Senior Secondary Education</p>
-        <p class="edu-institution">Delhi Public School</p>
-        <p class="edu-location">Kampala, Uganda · Apr 2020 – Mar 2022</p>
-        <p class="edu-details">
-          <strong>92%</strong> aggregate score
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner fade-up">
-      <p class="section-label" style="justify-content:center">Get in Touch</p>
-      <h2>Let's build something<br><em style="font-style:italic;color:var(--accent)">meaningful</em> together.</h2>
-      <a href="mailto:pratiksuchak16@gmail.com" class="contact-email">pratiksuchak16@gmail.com</a>
-      <div class="contact-links">
-        <a href="https://linkedin.com/in/pratiksuchak" target="_blank" class="contact-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/Pratikshk16" target="_blank" class="contact-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="https://ieeexplore.ieee.org/document/10649398" target="_blank" class="contact-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          IEEE Publication
-        </a>
-        <a href="https://scholar.google.com/citations?user=qTcCK4gAAAAJ&hl=en&authuser=2" target="_blank" class="contact-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg>
-          Google Scholar
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <p>© 2026 Pratik Suchak. Built with care.</p>
-    <p>Ahmedabad / Bangalore, India</p>
+    <p>© 2026 Pratik Suchak</p>
+    <p>AI/ML · Research · Engineering</p>
   </footer>
 
   <script>
-    // Mobile menu
+    const nav = document.getElementById('siteNav');
+    const menu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburger');
+    const navAnchors = [...document.querySelectorAll('.nav-links a')];
+
     function toggleMenu() {
-      document.getElementById('navMenu').classList.toggle('open');
+      const open = menu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
     }
 
-    // Close menu on link click
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.getElementById('navMenu').classList.remove('open');
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       });
     });
 
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, {passive:true});
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, {threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el => revealObserver.observe(el));
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Staggered child animations in grids
-    document.querySelectorAll('.projects-grid, .pub-list, .skills-grid, .edu-cards').forEach(grid => {
-      grid.querySelectorAll('.fade-up').forEach((card, i) => {
-        card.style.transitionDelay = `${i * 0.1}s`;
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
       });
-    });
+    }, {rootMargin:'-35% 0px -55% 0px', threshold:0});
+    document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
   </script>
 </body>
 </html>
